@@ -1,0 +1,3 @@
+# Über mich
+
+Mein Name ist Martin Biela-Sattler und ich studiere Informationstechnologie im Masterstudiengang. Beruflich bin ich als Data Engineer tätig und beschäftige mich mit der Verarbeitung, Integration und Analyse von Daten. Besonders interessieren mich Softwareentwicklung, Datenbanken und Cloud-Technologien. Im Rahmen meines Studiums möchte ich meine technischen Kenntnisse weiter vertiefen und neue Technologien kennenlernen.
