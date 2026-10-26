@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNews Austria</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background-color: #1D3557;
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #A8C4D8;
+    }
+
+    /* Navigation */
+    .nav {
+      background-color: #1D9E75;
+      padding: 10px 32px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-item a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main layout */
+    .main-wrapper {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 32px;
+    }
+
+    /* Content area */
+    .content-area {
+      flex: 2;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      color: #1D3557;
+      border-bottom: 2px solid #1D9E75;
+      padding-bottom: 8px;
+    }
+
+    /* Article */
+    .article-box {
+      background: white;
+      border-radius: 6px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .article-category {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #1D9E75;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .article-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1D3557;
+      margin-bottom: 8px;
+    }
+
+    .article-meta {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .article-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    .article-image-box {
+      margin-bottom: 16px;
+    }
+
+    .article-image-box img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .article-caption {
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .read-more {
+      display: inline-block;
+      background-color: #1D9E75;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      flex: 1;
+    }
+
+    .sidebar-box {
+      background: white;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .sidebar-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #1D3557;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+    }
+
+    .sidebar-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    .sidebar-item:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-item a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidebar-item a:hover {
+      color: #1D9E75;
+    }
+
+    .sidebar-item-date {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1D3557;
+      color: #A8C4D8;
+      padding: 32px;
+      margin-top: 48px;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 48px;
+      margin-bottom: 24px;
+    }
+
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .footer-col-item {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .footer-col-item a {
+      color: #A8C4D8;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid #2a4a6b;
+      padding-top: 16px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+
+    /* Listen werden wie die bisherigen div-Elemente dargestellt. */
+    .nav-list {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .sidebar-list,
+    .footer-links {
+      list-style: none;
+    }
+</style>
+</head>
+<body>
+
+  <!-- HEADER: Kopfbereich der Website -->
+  <header class="header">
+    <section aria-label="Marke">
+      <p class="logo">TechNews Austria</p>
+      <p class="tagline">Technologie. Verständlich erklärt.</p>
+    </section>
+    <time datetime="2026-08-25" style="font-size: 13px; color: #A8C4D8; display: block;">Dienstag, 25. August 2026</time>
+  </header>
+
+  <!-- NAVIGATION: Hauptmenü -->
+  <nav class="nav" aria-label="Hauptnavigation">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#">Startseite</a></li>
+      <li class="nav-item"><a href="#">KI &amp; Zukunft</a></li>
+      <li class="nav-item"><a href="#">Webentwicklung</a></li>
+      <li class="nav-item"><a href="#">Hardware</a></li>
+      <li class="nav-item"><a href="#">Karriere</a></li>
+      <li class="nav-item"><a href="#">Über uns</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN: Hauptinhalt der Seite -->
+  <main class="main-wrapper">
+
+    <!-- SECTION: Bereich mit den aktuellen Meldungen -->
+    <section class="content-area" aria-labelledby="aktuelle-meldungen">
+      <h1 class="page-title" id="aktuelle-meldungen">Aktuelle Meldungen</h1>
+
+      <!-- ARTIKEL 1 -->
+      <article class="article-box" aria-labelledby="artikel-1-titel">
+        <p class="article-category">Webentwicklung</p>
+        <h2 class="article-title" id="artikel-1-titel">TypeScript überholt JavaScript in Unternehmensumgebungen</h2>
+        <p class="article-meta">Von Anna Berger &nbsp;|&nbsp; <time datetime="2026-08-25">25. August 2026</time> &nbsp;|&nbsp; 4 Min. Lesezeit</p>
+        <figure class="article-image-box">
+          <img src="https://placehold.co/700x300/1D3557/FFFFFF?text=TypeScript+vs+JavaScript" alt="TypeScript Logo">
+          <figcaption class="article-caption">TypeScript bietet statische Typisierung und verbessert die Code-Qualität in großen Projekten.</figcaption>
+        </figure>
+        <p class="article-text">
+          Laut einer aktuellen Studie des Stack Overflow Developer Survey 2026 setzen mittlerweile mehr als 42 % aller professionellen Entwicklerinnen und Entwickler TypeScript als primäre Sprache ein — ein Anstieg von 8 % gegenüber dem Vorjahr.
+        </p>
+        <p class="article-text">
+          Besonders in Unternehmensumgebungen mit großen Codebasen schätzen Teams die statische Typisierung, die Fehler bereits zur Entwicklungszeit sichtbar macht. „TypeScript hat unsere Debugging-Zeit halbiert", berichtet ein Lead Developer eines Wiener Fintechs.
+        </p>
+        <a class="read-more" href="#">Weiterlesen</a>
+      </article>
+
+      <!-- ARTIKEL 2 -->
+      <article class="article-box" aria-labelledby="artikel-2-titel">
+        <p class="article-category">KI &amp; Zukunft</p>
+        <h2 class="article-title" id="artikel-2-titel">GitHub Copilot: Produktivitätssteigerung oder Lernhindernis?</h2>
+        <p class="article-meta">Von Markus Hofer &nbsp;|&nbsp; <time datetime="2026-08-24">24. August 2026</time> &nbsp;|&nbsp; 6 Min. Lesezeit</p>
+        <p class="article-text">
+          AI-gestützte Code-Assistenten wie GitHub Copilot sind aus modernen Entwicklungsworkflows kaum noch wegzudenken. Doch während erfahrene Entwicklerinnen und Entwickler von massiven Produktivitätssteigerungen berichten, warnen Bildungsexpertinnen vor einem möglichen Lernhindernis für Einsteiger.
+        </p>
+        <p class="article-text">
+          Die Diskussion dreht sich vor allem um die Frage: Versteht man noch, was man tut, wenn ein KI-Tool den Code schreibt? Expertinnen sind sich einig: Der kritische Umgang mit AI-generierten Vorschlägen ist die entscheidende Kompetenz.
+        </p>
+        <a class="read-more" href="#">Weiterlesen</a>
+      </article>
+
+      <!-- ARTIKEL 3 -->
+      <article class="article-box" aria-labelledby="artikel-3-titel">
+        <p class="article-category">Karriere</p>
+        <h2 class="article-title" id="artikel-3-titel">Frontend-Entwicklung 2026: Welche Skills Unternehmen wirklich suchen</h2>
+        <p class="article-meta">Von Sophie Kern &nbsp;|&nbsp; <time datetime="2026-08-22">22. August 2026</time> &nbsp;|&nbsp; 5 Min. Lesezeit</p>
+        <p class="article-text">
+          Eine Auswertung von über 3.000 Stellenanzeigen in der DACH-Region zeigt: React, TypeScript und Kenntnisse in AI-Integration gehören 2026 zu den meistgefragten Skills im Frontend-Bereich. Wer zusätzlich Erfahrung mit CI/CD-Pipelines und modernen Deployment-Workflows mitbringt, hat klare Vorteile.
+        </p>
+        <a class="read-more" href="#">Weiterlesen</a>
+      </article>
+    </section>
+
+    <!-- ASIDE: Zusätzliche Inhalte neben den Artikeln -->
+    <aside class="sidebar" aria-label="Weitere Inhalte">
+
+      <section class="sidebar-box" aria-labelledby="neueste-artikel">
+        <h2 class="sidebar-title" id="neueste-artikel">Neueste Artikel</h2>
+        <ul class="sidebar-list">
+          <li class="sidebar-item">
+            <a href="#">React 20 — Was ist neu?</a>
+            <p class="sidebar-item-date"><time datetime="2026-08-23">23. August 2026</time></p>
+          </li>
+          <li class="sidebar-item">
+            <a href="#">Vite 7.0 erschienen</a>
+            <p class="sidebar-item-date"><time datetime="2026-08-21">21. August 2026</time></p>
+          </li>
+          <li class="sidebar-item">
+            <a href="#">Barrierefreiheit im Web: WCAG 2.2 im Überblick</a>
+            <p class="sidebar-item-date"><time datetime="2026-08-19">19. August 2026</time></p>
+          </li>
+          <li class="sidebar-item">
+            <a href="#">Node.js 24 LTS veröffentlicht</a>
+            <p class="sidebar-item-date"><time datetime="2026-08-15">15. August 2026</time></p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="sidebar-box" aria-labelledby="ueber-technews">
+        <h2 class="sidebar-title" id="ueber-technews">Über TechNews Austria</h2>
+        <p style="font-size: 14px; line-height: 1.6; color: #555;">
+          TechNews Austria berichtet seit 2018 über Technologie, Webentwicklung und digitale Trends — verständlich, unabhängig und aus österreichischer Perspektive.
+        </p>
+      </section>
+    </aside>
+  </main>
+
+  <!-- FOOTER: Informationen und weiterführende Links -->
+  <footer class="footer">
+    <section class="footer-grid" aria-label="Kontakt und Rubriken">
+      <section>
+        <h2 class="footer-col-title">TechNews Austria</h2>
+        <p class="footer-col-item">Technologie. Verständlich erklärt.</p>
+        <p class="footer-col-item" style="margin-top: 8px;">kontakt@technews-austria.at</p>
+      </section>
+      <nav aria-labelledby="footer-rubriken">
+        <h2 class="footer-col-title" id="footer-rubriken">Rubriken</h2>
+        <ul class="footer-links">
+          <li class="footer-col-item"><a href="#">KI &amp; Zukunft</a></li>
+          <li class="footer-col-item"><a href="#">Webentwicklung</a></li>
+          <li class="footer-col-item"><a href="#">Hardware</a></li>
+          <li class="footer-col-item"><a href="#">Karriere</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="footer-rechtliches">
+        <h2 class="footer-col-title" id="footer-rechtliches">Rechtliches</h2>
+        <ul class="footer-links">
+          <li class="footer-col-item"><a href="#">Impressum</a></li>
+          <li class="footer-col-item"><a href="#">Datenschutz</a></li>
+          <li class="footer-col-item"><a href="#">Cookie-Einstellungen</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="footer-bottom" aria-label="Copyright und Herkunft">
+      <p>© 2026 TechNews Austria. Alle Rechte vorbehalten.</p>
+      <p>Made with ☕ in Wien</p>
+    </section>
+  </footer>
+</body>
+</html>
